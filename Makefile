@@ -1,7 +1,5 @@
-bin/test : SCR/ftx_test.cpp
-	g++ SCR/ftx_test.cpp -o bin/test -stdxc++20
+bin/test : src/ftx_test.cpp
+	g++ src/ftx_test.cpp -o bin/test -std=c++2a -lftxui-screen -lftxui-component -lftxui-dom
 
 ejecutar : bin/test
 	./bin/test
-
-hola : 
