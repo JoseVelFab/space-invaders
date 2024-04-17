@@ -1,8 +1,40 @@
 #include <iostream> 
+#include <ftxui/dom/elements.hpp>
+#include <ftxui/screen/screen.hpp>
+#include <string>
+#include <chrono>
+#include <thread>
+
 using namespace std;
+using namespace ftxui;
+
+void make_elemnt(void){
+ for (int i=0;i>10;i++){
+    Element lienzo = hbox({
+        spinner(i,3) | bold
+    });
+ }
+};
 
 int main(int argc, char const *argv[])
-{
-    /* code */
+{   
+   Element lienzo = hbox({
+        spinner(21,3) | bold
+    });
+
+    Screen pantalla = Screen::Create(
+        Dimension::Full(),
+        Dimension::Fit(lienzo)
+    );
+
+    Render(pantalla,lienzo);
+    pantalla.Print();
+    pantalla.ResetPosition();
+
+    this_thread::sleep_for(0.1s)
+
+
+
+
     return 0;
 }
