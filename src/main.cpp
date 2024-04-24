@@ -2,12 +2,12 @@
 #include <string>
 #include <thread>
 
-#include <fstream>
 #include <ftxui/dom/elements.hpp>
 #include <ftxui/screen/screen.hpp>
 #include <ftxui/screen/string.hpp>
 #include <ftxui/screen/terminal.hpp>
 
+#include <fstream>
 #include <Dibujo.hpp>
 
 using namespace std;
@@ -15,13 +15,13 @@ using namespace ftxui;
 
 int main(int argc, char const *argv[])
 {   
-    Dibujo dtanque("/assets/images/canon.txt");
-    Dibujo dAlien("/assets/images/alien.txt");
-    Dibujo dBloque("/assets/images/canon.txt");
+    Dibujo dtanque("./assets/images/canon.txt");
+    Dibujo dAlien("./assets/images/alien.txt");
+    Dibujo dBloque("./assets/images/canon.txt");
 
     int fotograma = 0;
 
-   while(true)
+    while(true)
     {
         fotograma++;
         Element personaje = spinner(21, fotograma) | bold | color(Color::Yellow1) | bgcolor(Color::Green1);
@@ -30,8 +30,8 @@ int main(int argc, char const *argv[])
         
         
         Screen pantalla = Screen::Create(
-        Dimension::Full(),
-        Dimension::Fit(lienzo));
+            Dimension::Full(),
+            Dimension::Fit(lienzo));
 
         
 
@@ -43,3 +43,4 @@ int main(int argc, char const *argv[])
     }
     return 0;
 }
+
